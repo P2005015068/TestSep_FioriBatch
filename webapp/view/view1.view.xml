@@ -1,0 +1,52 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="vkc.mkt.stk.controller.view1">
+<Page title="PAGE 1">
+    <headerContent>
+        <Button icon="sap-icon://action"  press="onPressView1" tooltip="Go to Next Page"></Button>
+   </headerContent>
+    <!-- <Button text="Go to Next Page"  press="onPressView1"></Button> 
+         itemPress="onListItemSelect" -->
+    <content>
+        <SearchField id="idSearch" search="onSearch"></SearchField>
+        <List id="idList" items="{/ProductSet}" selectionChange="onListItemSelect"   
+        mode="SingleSelectMaster" growing="true" growingThreshold="10" >
+           <items>
+              <!-- type="Navigation" -->
+              <ObjectListItem   title="{Name}" intro="{Category}" number="{Price}" numberUnit="{CurrencyCode}"
+                 >
+              </ObjectListItem>
+
+
+              <!-- <DisplayListItem label="Apple" value="Best Antibiotic in the World"></DisplayListItem>
+              icon="{imageURL}"
+              <StandardListItem title="Banana" description="Good source of Potasium, restore lactic acid"  icon="https://media.npr.org/assets/img/2011/08/19/istock_000017061174small_wide-69bb958273302dc0a2ecaf5050d94a2beeee3376.jpg?s=1400" ></StandardListItem>
+              <for margins refer https://sapui5.hana.ondemand.com/#/topic/777168ffe8324873973151dae2356d1c.html 
+              <InputListItem >
+                 <HBox >         
+                   <Label class="sapUiSmallMarginBeginEnd sapUiMediumMarginEnd" text="which fruit do you want to order?"></Label>
+                   <Input></Input>
+                  </HBox>
+
+              </InputListItem>
+              <ObjectListItem title="Pineapple" intro="Good for glowing skin" number="100 INR" numberUnit="Pc."
+              icon="https://thumbs.dreamstime.com/b/pineapple-slices-isolated-white-30985039.jpg">
+              </ObjectListItem>
+              <CustomListItem >
+                          <Label class="sapUiSmallMarginTop sapUiMediumMarginEnd" text=" do you want COD?"></Label>
+                          <Switch ></Switch>
+              </CustomListItem> 
+              <FeedListItem sender="Mr.Modi" text="Hi Rao! How is your retirement life?" timestamp="Thu Aug 4th" icon=""></FeedListItem>
+              <ActionListItem text="Order Now" press="onPressView1"></ActionListItem>             -->
+           </items>        
+        </List>
+    
+    </content>
+    <footer>
+        <Toolbar> 
+             <ToolbarSpacer />
+             <Button text="Add" icon="sap-icon://add" press="onAddProduct"/>
+        
+        </Toolbar>
+    
+    </footer>
+</Page>
+</mvc:View>

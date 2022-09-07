@@ -1,0 +1,67 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="vkc.mkt.stk.controller.Add"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+>
+<Page title="Add New Product">
+	<VBox class="sapUiSmallMargin">
+		<f:SimpleForm id="SimpleFormChange354"
+			editable="true"
+			layout="ResponsiveGridLayout"
+			title="Product Data"
+			labelSpanXL="3"
+			labelSpanL="3"
+			labelSpanM="3"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="4"
+			emptySpanL="4"
+			emptySpanM="4"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			<f:content>
+				<Label text="ID" />
+				<Input id="name" value="{great>/prodData/ProductID}" submit="onLoadSingle"/>
+				<Label text="Name / Description" />
+				<Input id="idDesc" value="{great>/prodData/Name}"/>
+                <Input value="{great>/prodData/Description}">
+					<layoutData>
+						<l:GridData span="XL1 L2 M2 S4" />
+					</layoutData>
+				</Input>
+				<Label text="Supp.ID / Name" />
+				<Input id="supId" value="{great>/prodData/SupplierID}" showValueHelp="true" valueHelpRequest="onF4Supplier" />
+          	    <Text  id="supIdName" text="{great>/prodData/SupplierName}"/>
+				<Label text="Price" />
+				<Input value="{great>/prodData/Price}">
+					<layoutData>
+						<l:GridData span="XL1 L2 M2 S4" />
+					</layoutData>
+				</Input>
+				<Input value="{great>/prodData/CurrencyCode}" />
+				<Label text="Category" />
+				<Select id="category" selectedKey="{great>/prodData/Category}">
+					<items>
+						<core:Item text="Notebooks" key="Notebooks"/>
+						<core:Item text="Projectors" key="Projectors"/>
+						<core:Item text="Mice" key="Mice"/>
+					</items>
+				</Select>
+			</f:content>
+		</f:SimpleForm>
+	</VBox>
+    <footer> 
+	     <Toolbar> 
+		     <ToolbarSpacer />
+			 <Button id="idSave" text="Save" press="onSave" type="Accept"/>
+			 <Button id="idDelete" text="Delete" press="onDelete" type="Reject"/>
+			 <Button text="Clear" press="onClear" type="Reject"/>
+		 </Toolbar>
+	
+	</footer>
+</Page>
+
+</mvc:View>

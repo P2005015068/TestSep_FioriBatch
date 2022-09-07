@@ -1,0 +1,35 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="vkc/mkt/stk/controller/Supplier"
+          xmlns:viz="sap.viz.ui5.controls"
+          xmlns:viz.data="sap.viz.ui5.data"
+          xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds">
+    <Page title="Supplier Data" showNavButton="true" navButtonPress="onPressSupplier">
+       <content>
+           <ObjectHeader title="{name}" intro="{sinceWhen}" number="{contactNo}" numberUnit="{contactPerson}" icon="sap-icon://supplier"></ObjectHeader> 
+           <viz:VizFrame id=""  height="" width="" vizType="column"
+                      vizProperties="{title: {text:'Quantity Per Product'},
+                                     dataLabel:{visible:true,showTotal:true}}"
+                      uiConfig="{applicationSet: 'fiori'}">
+                <viz:dataset>
+                     <viz.data:FlattenedDataset data="{suppFruits}">
+                        <viz.data:dimensions>
+                            <viz.data:DimensionDefinition name="Product Name" value="{name}"></viz.data:DimensionDefinition>
+                        </viz.data:dimensions>                      
+                        <viz.data:measures>
+                             <viz.data:MeasureDefinition name="Quantity" value="{quantity}" ></viz.data:MeasureDefinition>
+                        </viz.data:measures>
+                     </viz.data:FlattenedDataset>
+                
+                </viz:dataset>  
+                <viz:feeds>
+                      <viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Quantity"></viz.feeds:FeedItem> 
+                      <viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Product Name"></viz.feeds:FeedItem>      
+                </viz:feeds>    
+           </viz:VizFrame>
+       </content>
+    <footer>
+        <Toolbar> 
+             <ToolbarSpacer ></ToolbarSpacer>
+        </Toolbar>
+    </footer>                 
+    </Page>
+</mvc:View>

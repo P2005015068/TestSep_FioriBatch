@@ -1,0 +1,5 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="vkc.mkt.stk.controller.Empty">
+  <Page title="Statup my App">
+      <Image src="http://sasaram.bk.ooo/wp-content/uploads/sites/406/2019/04/cropped-shiv-baba-min.gif" width="100%" height="100%"></Image>
+  </Page>
+</mvc:View>

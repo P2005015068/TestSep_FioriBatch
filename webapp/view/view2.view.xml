@@ -1,0 +1,33 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form"
+ controllerName="vkc.mkt.stk.controller.view2" xmlns:core="sap.ui.core">
+<Page title="{ProductID}" showNavButton="true" navButtonPress="onPressView2" >
+    <!-- <Button text="Go to Next Page"  press="onPressView1"></Button> -->
+    <content>
+        <ObjectHeader title="{ProductID}" intro="{Description}" number="{Price}" numberUnit="{CurrencyCode}" icon="{sap-icon://product}"></ObjectHeader>
+        <IconTabBar >
+            <items>
+                <IconTabFilter text="More Info" icon="sap-icon://information" >
+                  <core:Fragment fragmentName="vkc.mkt.stk.fragments.moreinfo" type="XML"></core:Fragment>
+                </IconTabFilter>
+                <IconTabFilter text="Suppliers" icon="sap-icon://supplier" >
+                <core:Fragment fragmentName="vkc.mkt.stk.fragments.supplier" type="XML"></core:Fragment>
+                </IconTabFilter>
+                   
+                <IconTabFilter text="Cities" icon="sap-icon://home">
+                  <core:Fragment fragmentName="vkc.mkt.stk.fragments.cities" type="XML"></core:Fragment>
+                </IconTabFilter>
+            </items>
+        </IconTabBar>
+    </content>
+    <footer>
+        <Toolbar >
+           <ToolbarSpacer ></ToolbarSpacer>
+           <Button text="Save" icon="sap-icon://save" press="onSave" type="Accept"></Button>
+           <Button text="Cancel" icon="sap-icon://cancel" press="onCancel" type="Reject"></Button>
+        </Toolbar>
+    </footer>
+</Page>
+<Toolbar >
+
+</Toolbar>
+</mvc:View>

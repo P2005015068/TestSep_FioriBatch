@@ -1,0 +1,132 @@
+{
+    "_version": "1.37.0",
+    "sap.app": {
+        "id": "vkc.mkt.stk",
+        "type": "application",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        
+        "ach": "MKT-FIN-STK",
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "i18n": "i18n/i18n.properties",
+        "dataSources": {
+          "kesavService":{
+              "type": "OData",
+              "uri": "/sap/opu/odata/iwbep/GWSAMPLE_BASIC/",
+              "settings": {
+                  "odataVersion": "2.0"
+              }
+          }
+      }
+    },
+    "sap.ui": {
+        "fullWidth": true,
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        },
+        "supportedThemes": ["sap_fiori_3", "sap_fiori_3_dark","sap-horizon","sap-horizon-dark"],
+        "technology": "UI5"
+    },
+    "sap.ui5": {
+        "dependencies": {
+              "minUI5Version": "1.96.0",
+              "libs": {
+                  "sap.ui.core":{},
+                  "sap.m":{},
+                  "sap.viz":{}
+              }  
+          },
+          "resources": {
+             "css": [{"uri":"css/style.css"}]
+          },
+          "contentDensities": {"compact": true, "cozy": true},
+          "rootView": {
+                "viewName": "vkc.mkt.stk.view.App",
+                 "id": "idRout",
+                 "type": "XML"
+          },   
+          "routing": {
+              "config": {
+                  "routerClass": "sap.m.routing.Router",
+                  "viewPath": "vkc.mkt.stk.view",
+                  "viewType": "XML",
+                  "controlId": "idAppCon"
+              },
+              "routes":[{
+                "name": "start",
+                "pattern": "",
+                "target":["master","empty"]
+              },{
+                "name": "second",
+                "pattern": "fruits/{fruitId}",
+                "target":["master","detail"]
+              },{
+                "name": "suppl",
+                "pattern": "suppliers/{supplierId}",
+                "target":["master","supplier"]
+              },{
+                "name": "add",
+                "pattern": "AddProduct",
+                "target":["master","addprd"]
+              }                  
+              ],
+              "targets": {
+                  "master":{
+                      "viewName": "view1",
+                      "viewId": "idV1",
+                      "controlAggregation": "masterPages"
+                  },
+                  "empty":{
+                    "viewName": "Empty",
+                    "viewId": "idEmpty",
+                    "controlAggregation": "detailPages"
+                  },
+                  "detail":{
+                    "viewName": "view2",
+                    "viewId": "idV2",
+                    "controlAggregation": "detailPages"
+                  },
+                  "supplier":{
+                    "viewName": "Supplier",
+                    "viewId": "idSup",
+                    "controlAggregation": "detailPages"
+                  },
+                  "addprd":{
+                    "viewName": "Add",
+                    "viewId": "idAdd",
+                    "controlAggregation": "detailPages"
+                }            
+
+
+              }
+          },
+          "models": {
+              "": {
+                "type": "sap.ui.model.odata.v2.ODataModel",
+                "dataSource": "kesavService",
+                "preload": true,
+                "settings": {
+                  "useBatch": false
+                }
+                },
+               "local":{
+                   "type": "sap.ui.model.json.JSONModel",
+                   "uri": "model/mockdata/fruits.json",
+                   "preload": true
+               },
+               "i18n": {
+                   "type": "sap.ui.model.resource.ResourceModel",
+                   "settings": {
+                         "bundleUrl": "i18n/i18n.properties"
+                   },
+                   "preload": true
+               }
+            
+
+          }
+      }
+    }
